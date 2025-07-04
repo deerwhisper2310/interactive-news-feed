@@ -159,11 +159,11 @@ Ready? Let's begin the press conference.
             <input name="teamYardsPerCarry" placeholder="Yards Per Carry (YPC)" value={formData.teamYardsPerCarry} onChange={handleChange} />
             <input name="teamThirdDownConversions" placeholder="Third-Down Conversions (e.g., 5/12)" value={formData.teamThirdDownConversions} onChange={handleChange} />
             <input name="teamRedZoneEfficiency" placeholder="Red-Zone Efficiency (e.g., 3/4)" value={formData.teamRedZoneEfficiency} onChange={handleChange} />
-            <input name="teamTurnovers" placeholder="Turnovers" value={formData.teamTurnovers} onChange={handleChange} />
-            <input name="teamSacks" placeholder="Sacks" value={formData.teamSacks} onChange={handleChange} />
+            <input name="teamTurnovers" placeholder="Giveaways" value={formData.teamTurnovers} onChange={handleChange} />
+            <input name="teamSacks" placeholder="Sacks Forced" value={formData.teamSacks} onChange={handleChange} />
             <input name="teamFieldGoals" placeholder="Field Goals (Made/Attempted)" value={formData.teamFieldGoals} onChange={handleChange} />
             <input name="teamTimeOfPossession" placeholder="Time of Possession (e.g., 32:15)" value={formData.teamTimeOfPossession} onChange={handleChange} />
-            <input name="teamPenalties" placeholder="Penalties (Count & Yards)" value={formData.teamPenalties} onChange={handleChange} />
+            <input name="teamPenalties" placeholder="Penalties (Count-Yards)" value={formData.teamPenalties} onChange={handleChange} />
           </div>
         </div>
         <div className="form-section">
@@ -177,11 +177,11 @@ Ready? Let's begin the press conference.
             <input name="opponentYardsPerCarry" placeholder="Yards Per Carry (YPC)" value={formData.opponentYardsPerCarry} onChange={handleChange} />
             <input name="opponentThirdDownConversions" placeholder="Third-Down Conversions (e.g., 5/12)" value={formData.opponentThirdDownConversions} onChange={handleChange} />
             <input name="opponentRedZoneEfficiency" placeholder="Red-Zone Efficiency (e.g., 3/4)" value={formData.opponentRedZoneEfficiency} onChange={handleChange} />
-            <input name="opponentTurnovers" placeholder="Turnovers" value={formData.opponentTurnovers} onChange={handleChange} />
-            <input name="opponentSacks" placeholder="Sacks" value={formData.opponentSacks} onChange={handleChange} />
+            <input name="opponentTurnovers" placeholder="Giveaways" value={formData.opponentTurnovers} onChange={handleChange} />
+            <input name="opponentSacks" placeholder="Sacks Forced" value={formData.opponentSacks} onChange={handleChange} />
             <input name="opponentFieldGoals" placeholder="Field Goals (Made/Attempted)" value={formData.opponentFieldGoals} onChange={handleChange} />
             <input name="opponentTimeOfPossession" placeholder="Time of Possession (e.g., 32:15)" value={formData.opponentTimeOfPossession} onChange={handleChange} />
-            <input name="opponentPenalties" placeholder="Penalties (Count & Yards)" value={formData.opponentPenalties} onChange={handleChange} />
+            <input name="opponentPenalties" placeholder="Penalties (Count-Yards)" value={formData.opponentPenalties} onChange={handleChange} />
           </div>
         </div>
         <div className="form-section">
