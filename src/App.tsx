@@ -2,6 +2,43 @@ import React, { useState, FormEvent, ChangeEvent } from 'react';
 import './App.css';
 
 const App: React.FC = () => {
+  const fbsSchools = [
+    "Air Force Falcons", "Akron Zips", "Alabama Crimson Tide", "Appalachian State Mountaineers",
+    "Arizona State Sun Devils", "Arizona Wildcats", "Arkansas Razorbacks", "Arkansas State Red Wolves",
+    "Army Black Knights", "Auburn Tigers", "Ball State Cardinals", "Baylor Bears",
+    "Boise State Broncos", "Boston College Eagles", "Bowling Green Falcons", "Buffalo Bulls",
+    "BYU Cougars", "California Bears", "Central Michigan Chippewas", "Charlotte 49ers",
+    "Cincinnati Bearcats", "Clemson Tigers", "Coastal Carolina Chanticleers", "Colorado Buffaloes",
+    "Colorado State Rams", "Delaware Blue Hens", "Duke Blue Devils", "East Carolina Pirates",
+    "Eastern Michigan Eagles", "Florida Atlantic Owls", "Florida Gators", "Florida International Panthers",
+    "Florida State Seminoles", "Fresno State Bulldogs", "Georgia Bulldogs", "Georgia Southern Eagles",
+    "Georgia State Panthers", "Georgia Tech Yellow Jackets", "Hawaii Rainbow Warriors", "Houston Cougars",
+    "Illinois Fighting Illini", "Indiana Hoosiers", "Iowa Hawkeyes", "Iowa State Cyclones",
+    "Jacksonville State Gamecocks", "James Madison Dukes", "Kansas Jayhawks", "Kansas State Wildcats",
+    "Kennesaw State Owls", "Kent State Golden Flashes", "Kentucky Wildcats", "Liberty Flames",
+    "Louisiana Ragin' Cajuns", "Louisiana Tech Bulldogs", "Louisville Cardinals", "LSU Tigers",
+    "Marshall Thundering Herd", "Maryland Terrapins", "Massachusetts Minutemen", "Memphis Tigers",
+    "Miami (FL) Hurricanes", "Miami (OH) RedHawks", "Michigan State Spartans", "Michigan Wolverines",
+    "Middle Tennessee State Blue Raiders", "Minnesota Golden Gophers", "Mississippi State Bulldogs",
+    "Missouri State Bears", "Missouri Tigers", "Navy Midshipmen", "NC State Wolfpack",
+    "Nebraska Cornhuskers", "Nevada Wolf Pack", "New Mexico Lobos", "New Mexico State Aggies",
+    "North Carolina Tar Heels", "North Texas Mean Green", "Northern Illinois Huskies", "Northwestern Wildcats",
+    "Notre Dame Fighting Irish", "Ohio Bobcats", "Ohio State Buckeyes", "Oklahoma Sooners",
+    "Oklahoma State Cowboys", "Old Dominion Monarchs", "Ole Miss Rebels", "Oregon Ducks",
+    "Oregon State Beavers", "Penn State Nittany Lions", "Pittsburgh Panthers", "Purdue Boilermakers",
+    "Rice Owls", "Rutgers Scarlet Knights", "Sam Houston Bearkats", "San Diego State Aztecs",
+    "San Jose State Spartans", "SMU Mustangs", "South Alabama Jaguars", "South Carolina Gamecocks",
+    "South Florida Bulls", "Southern Miss Golden Eagles", "Stanford Cardinal", "Syracuse Orange",
+    "TCU Horned Frogs", "Temple Owls", "Tennessee Volunteers", "Texas A&M Aggies",
+    "Texas Longhorns", "Texas State Bobcats", "Texas Tech Red Raiders", "Toledo Rockets",
+    "Troy Trojans", "Tulane Green Wave", "Tulsa Golden Hurricane", "UAB Blazers",
+    "UCF Knights", "UConn Huskies", "UL Monroe Warhawks", "UNLV Rebels",
+    "USC Trojans", "Utah State Aggies", "Utah Utes", "UTEP Miners",
+    "UTSA Roadrunners", "Vanderbilt Commodores", "Virginia Cavaliers", "Virginia Tech Hokies",
+    "Wake Forest Demon Deacons", "Washington Huskies", "Washington State Cougars", "West Virginia Mountaineers",
+    "Western Kentucky Hilltoppers", "Western Michigan Broncos", "Wisconsin Badgers", "Wyoming Cowboys"
+  ];
+
   const [formData, setFormData] = useState({
     teamName: '',
     teamRank: '',
@@ -141,10 +178,20 @@ Ready? Let's begin the press conference.
         <div className="form-section">
           <h2>Game Details</h2>
           <div className="form-grid">
-            <input name="teamName" placeholder="Your Team Name" value={formData.teamName} onChange={handleChange} />
+            <select name="teamName" value={formData.teamName} onChange={handleChange}>
+              <option value="">Select Your Team</option>
+              {fbsSchools.map(school => (
+                <option key={school} value={school}>{school}</option>
+              ))}
+            </select>
             <input name="teamRank" placeholder="Your Team Rank" value={formData.teamRank} onChange={handleChange} />
             <input name="teamRecord" placeholder="Your Team Record (W-L)" value={formData.teamRecord} onChange={handleChange} />
-            <input name="opponentName" placeholder="Opponent Name" value={formData.opponentName} onChange={handleChange} />
+            <select name="opponentName" value={formData.opponentName} onChange={handleChange}>
+              <option value="">Select Opponent</option>
+              {fbsSchools.map(school => (
+                <option key={school} value={school}>{school}</option>
+              ))}
+            </select>
             <input name="opponentRank" placeholder="Opponent Rank" value={formData.opponentRank} onChange={handleChange} />
             <input name="opponentRecord" placeholder="Opponent Record (W-L)" value={formData.opponentRecord} onChange={handleChange} />
             <input name="outcome" placeholder="Outcome (e.g., Win, Loss)" value={formData.outcome} onChange={handleChange} />
