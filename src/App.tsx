@@ -38,6 +38,7 @@ const App: React.FC = () => {
     opponentTimeOfPossession: '',
     opponentPenalties: '',
     coachNotes: '',
+    coachName: '',
   });
 
   const [generatedPrompt, setGeneratedPrompt] = useState('');
@@ -109,11 +110,13 @@ ${formData.coachNotes || 'No specific notes provided.'}
 
 **How to Begin:**
 
-1.  Acknowledge me as "Coach."
+1.  Acknowledge me as "Coach ${formData.coachName || ''}" (or just "Coach" if no name is provided).
 2.  Ask your first question from the perspective of one of the reporter personas.
 3.  Wait for my response before asking your next question.
 
 Ready? Let's begin the press conference.
+
+**After the press conference (4-5 questions) is over, ask the user if they would like a full transcript of the conference or an article about the game with snippets pulled from the media session.**
 `;
     setGeneratedPrompt(prompt);
   };
@@ -192,6 +195,10 @@ Ready? Let's begin the press conference.
             value={formData.coachNotes}
             onChange={handleChange}
           />
+        </div>
+        <div className="form-section">
+          <h2>Coach Details</h2>
+          <input name="coachName" placeholder="Coach's Name" value={formData.coachName} onChange={handleChange} />
         </div>
         <button type="submit">Generate Press Conference Prompt</button>
       </form>
