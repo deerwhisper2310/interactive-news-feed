@@ -39,6 +39,8 @@ const App: React.FC = () => {
     "Western Kentucky Hilltoppers", "Western Michigan Broncos", "Wisconsin Badgers", "Wyoming Cowboys"
   ];
 
+  const ranks = ["NR", ...Array.from({ length: 25 }, (_, i) => (i + 1).toString())];
+
   const [formData, setFormData] = useState({
     teamName: '',
     teamRank: '',
@@ -184,7 +186,12 @@ Ready? Let's begin the press conference.
                 <option key={school} value={school}>{school}</option>
               ))}
             </select>
-            <input name="teamRank" placeholder="Your Team Rank" value={formData.teamRank} onChange={handleChange} />
+            <select name="teamRank" value={formData.teamRank} onChange={handleChange}>
+              <option value="">Select Rank</option>
+              {ranks.map(rank => (
+                <option key={rank} value={rank}>{rank}</option>
+              ))}
+            </select>
             <input name="teamRecord" placeholder="Your Team Record (W-L)" value={formData.teamRecord} onChange={handleChange} />
             <select name="opponentName" value={formData.opponentName} onChange={handleChange}>
               <option value="">Select Opponent</option>
@@ -192,7 +199,12 @@ Ready? Let's begin the press conference.
                 <option key={school} value={school}>{school}</option>
               ))}
             </select>
-            <input name="opponentRank" placeholder="Opponent Rank" value={formData.opponentRank} onChange={handleChange} />
+            <select name="opponentRank" value={formData.opponentRank} onChange={handleChange}>
+              <option value="">Select Rank</option>
+              {ranks.map(rank => (
+                <option key={rank} value={rank}>{rank}</option>
+              ))}
+            </select>
             <input name="opponentRecord" placeholder="Opponent Record (W-L)" value={formData.opponentRecord} onChange={handleChange} />
             <select name="outcome" value={formData.outcome} onChange={handleChange}>
               <option value="">Select Outcome</option>
