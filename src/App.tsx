@@ -14,11 +14,29 @@ const App: React.FC = () => {
     teamTotalYards: '',
     teamPassingYards: '',
     teamRushingYards: '',
+    teamCompletionPercentage: '',
+    teamYardsPerAttempt: '',
+    teamYardsPerCarry: '',
+    teamThirdDownConversions: '',
+    teamRedZoneEfficiency: '',
     teamTurnovers: '',
+    teamSacks: '',
+    teamFieldGoals: '',
+    teamTimeOfPossession: '',
+    teamPenalties: '',
     opponentTotalYards: '',
     opponentPassingYards: '',
     opponentRushingYards: '',
+    opponentCompletionPercentage: '',
+    opponentYardsPerAttempt: '',
+    opponentYardsPerCarry: '',
+    opponentThirdDownConversions: '',
+    opponentRedZoneEfficiency: '',
     opponentTurnovers: '',
+    opponentSacks: '',
+    opponentFieldGoals: '',
+    opponentTimeOfPossession: '',
+    opponentPenalties: '',
     coachNotes: '',
   });
 
@@ -36,7 +54,7 @@ const App: React.FC = () => {
 
 **Your Role:** You are a group of diverse sports journalists at a post-game press conference. For each question, you will adopt one of the personas listed below. Do not state which persona you are embodying; simply ask the question from that perspective. Cycle through different personas for each question to create a dynamic and realistic press conference experience.
 
-**Your Task:** Your goal is to engage in a realistic press conference with me, the head coach. I will provide my responses, and you will ask insightful follow-up questions based on my answers and the game data provided. The press conference should last for a total of 4 to 7 questions. Start with an opening question, and then continue the conversation naturally.
+**Your Task:** Your goal is to engage in a realistic press conference with me, the head coach. I will provide my responses, and you will ask insightful follow-up questions based on my answers and the game data provided. The press conference should last for a total of 4 to 5 questions. Start with an opening question, and then continue the conversation naturally.
 
 **Reporter Personas:**
 
@@ -59,13 +77,31 @@ const App: React.FC = () => {
 *   **My Team:**
     *   Total Yards: ${formData.teamTotalYards || 'N/A'}
     *   Passing Yards: ${formData.teamPassingYards || 'N/A'}
+    *   Completion Percentage: ${formData.teamCompletionPercentage || 'N/A'}
+    *   Yards Per Attempt (YPA): ${formData.teamYardsPerAttempt || 'N/A'}
     *   Rushing Yards: ${formData.teamRushingYards || 'N/A'}
+    *   Yards Per Carry (YPC): ${formData.teamYardsPerCarry || 'N/A'}
+    *   Third-Down Conversions: ${formData.teamThirdDownConversions || 'N/A'}
+    *   Red-Zone Efficiency: ${formData.teamRedZoneEfficiency || 'N/A'}
     *   Turnovers: ${formData.teamTurnovers || 'N/A'}
+    *   Sacks: ${formData.teamSacks || 'N/A'}
+    *   Field Goals (Made/Attempted): ${formData.teamFieldGoals || 'N/A'}
+    *   Time of Possession: ${formData.teamTimeOfPossession || 'N/A'}
+    *   Penalties (Count & Yards): ${formData.teamPenalties || 'N/A'}
 *   **Opponent:**
     *   Total Yards: ${formData.opponentTotalYards || 'N/A'}
     *   Passing Yards: ${formData.opponentPassingYards || 'N/A'}
+    *   Completion Percentage: ${formData.opponentCompletionPercentage || 'N/A'}
+    *   Yards Per Attempt (YPA): ${formData.opponentYardsPerAttempt || 'N/A'}
     *   Rushing Yards: ${formData.opponentRushingYards || 'N/A'}
+    *   Yards Per Carry (YPC): ${formData.opponentYardsPerCarry || 'N/A'}
+    *   Third-Down Conversions: ${formData.opponentThirdDownConversions || 'N/A'}
+    *   Red-Zone Efficiency: ${formData.opponentRedZoneEfficiency || 'N/A'}
     *   Turnovers: ${formData.opponentTurnovers || 'N/A'}
+    *   Sacks: ${formData.opponentSacks || 'N/A'}
+    *   Field Goals (Made/Attempted): ${formData.opponentFieldGoals || 'N/A'}
+    *   Time of Possession: ${formData.opponentTimeOfPossession || 'N/A'}
+    *   Penalties (Count & Yards): ${formData.opponentPenalties || 'N/A'}
 
 **Coach's Notes (Key Themes for Your Questions):**
 
@@ -117,8 +153,17 @@ Ready? Let's begin the press conference.
           <div className="form-grid">
             <input name="teamTotalYards" placeholder="Total Yards" value={formData.teamTotalYards} onChange={handleChange} />
             <input name="teamPassingYards" placeholder="Passing Yards" value={formData.teamPassingYards} onChange={handleChange} />
+            <input name="teamCompletionPercentage" placeholder="Completion Percentage" value={formData.teamCompletionPercentage} onChange={handleChange} />
+            <input name="teamYardsPerAttempt" placeholder="Yards Per Attempt (YPA)" value={formData.teamYardsPerAttempt} onChange={handleChange} />
             <input name="teamRushingYards" placeholder="Rushing Yards" value={formData.teamRushingYards} onChange={handleChange} />
+            <input name="teamYardsPerCarry" placeholder="Yards Per Carry (YPC)" value={formData.teamYardsPerCarry} onChange={handleChange} />
+            <input name="teamThirdDownConversions" placeholder="Third-Down Conversions (e.g., 5/12)" value={formData.teamThirdDownConversions} onChange={handleChange} />
+            <input name="teamRedZoneEfficiency" placeholder="Red-Zone Efficiency (e.g., 3/4)" value={formData.teamRedZoneEfficiency} onChange={handleChange} />
             <input name="teamTurnovers" placeholder="Turnovers" value={formData.teamTurnovers} onChange={handleChange} />
+            <input name="teamSacks" placeholder="Sacks" value={formData.teamSacks} onChange={handleChange} />
+            <input name="teamFieldGoals" placeholder="Field Goals (Made/Attempted)" value={formData.teamFieldGoals} onChange={handleChange} />
+            <input name="teamTimeOfPossession" placeholder="Time of Possession (e.g., 32:15)" value={formData.teamTimeOfPossession} onChange={handleChange} />
+            <input name="teamPenalties" placeholder="Penalties (Count & Yards)" value={formData.teamPenalties} onChange={handleChange} />
           </div>
         </div>
         <div className="form-section">
@@ -126,8 +171,17 @@ Ready? Let's begin the press conference.
           <div className="form-grid">
             <input name="opponentTotalYards" placeholder="Total Yards" value={formData.opponentTotalYards} onChange={handleChange} />
             <input name="opponentPassingYards" placeholder="Passing Yards" value={formData.opponentPassingYards} onChange={handleChange} />
+            <input name="opponentCompletionPercentage" placeholder="Completion Percentage" value={formData.opponentCompletionPercentage} onChange={handleChange} />
+            <input name="opponentYardsPerAttempt" placeholder="Yards Per Attempt (YPA)" value={formData.opponentYardsPerAttempt} onChange={handleChange} />
             <input name="opponentRushingYards" placeholder="Rushing Yards" value={formData.opponentRushingYards} onChange={handleChange} />
+            <input name="opponentYardsPerCarry" placeholder="Yards Per Carry (YPC)" value={formData.opponentYardsPerCarry} onChange={handleChange} />
+            <input name="opponentThirdDownConversions" placeholder="Third-Down Conversions (e.g., 5/12)" value={formData.opponentThirdDownConversions} onChange={handleChange} />
+            <input name="opponentRedZoneEfficiency" placeholder="Red-Zone Efficiency (e.g., 3/4)" value={formData.opponentRedZoneEfficiency} onChange={handleChange} />
             <input name="opponentTurnovers" placeholder="Turnovers" value={formData.opponentTurnovers} onChange={handleChange} />
+            <input name="opponentSacks" placeholder="Sacks" value={formData.opponentSacks} onChange={handleChange} />
+            <input name="opponentFieldGoals" placeholder="Field Goals (Made/Attempted)" value={formData.opponentFieldGoals} onChange={handleChange} />
+            <input name="opponentTimeOfPossession" placeholder="Time of Possession (e.g., 32:15)" value={formData.opponentTimeOfPossession} onChange={handleChange} />
+            <input name="opponentPenalties" placeholder="Penalties (Count & Yards)" value={formData.opponentPenalties} onChange={handleChange} />
           </div>
         </div>
         <div className="form-section">
