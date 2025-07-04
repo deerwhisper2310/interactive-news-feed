@@ -80,7 +80,7 @@ const App: React.FC = () => {
 
   const [generatedPrompt, setGeneratedPrompt] = useState('');
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
@@ -194,7 +194,11 @@ Ready? Let's begin the press conference.
             </select>
             <input name="opponentRank" placeholder="Opponent Rank" value={formData.opponentRank} onChange={handleChange} />
             <input name="opponentRecord" placeholder="Opponent Record (W-L)" value={formData.opponentRecord} onChange={handleChange} />
-            <input name="outcome" placeholder="Outcome (e.g., Win, Loss)" value={formData.outcome} onChange={handleChange} />
+            <select name="outcome" value={formData.outcome} onChange={handleChange}>
+              <option value="">Select Outcome</option>
+              <option value="Win">Win</option>
+              <option value="Loss">Loss</option>
+            </select>
             <input name="finalScore" placeholder="Final Score (e.g., 28-24)" value={formData.finalScore} onChange={handleChange} />
           </div>
         </div>
