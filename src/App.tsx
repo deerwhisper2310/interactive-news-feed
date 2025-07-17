@@ -36,7 +36,8 @@ const App: React.FC = () => {
     "USC Trojans", "Utah State Aggies", "Utah Utes", "UTEP Miners",
     "UTSA Roadrunners", "Vanderbilt Commodores", "Virginia Cavaliers", "Virginia Tech Hokies",
     "Wake Forest Demon Deacons", "Washington Huskies", "Washington State Cougars", "West Virginia Mountaineers",
-    "Western Kentucky Hilltoppers", "Western Michigan Broncos", "Wisconsin Badgers", "Wyoming Cowboys"
+    "Western Kentucky Hilltoppers", "Western Michigan Broncos", "Wisconsin Badgers", "Wyoming Cowboys",
+    "Eastern Washington Eagles", "Campbell Fighting Camels", "North Dakota Fighting Hawks", "Western Illinois Leathernecks", "Fordham Rams"
   ];
 
   const ranks = ["NR", ...Array.from({ length: 25 }, (_, i) => (i + 1).toString())];
@@ -54,7 +55,7 @@ const App: React.FC = () => {
     teamPassingYards: '',
     teamRushingYards: '',
     teamCompletionPercentage: '',
-    teamYardsPerAttempt: '',
+    teamYardsPerCompletion: '',
     teamYardsPerCarry: '',
     teamThirdDownConversions: '',
     teamRedZoneEfficiency: '',
@@ -67,7 +68,7 @@ const App: React.FC = () => {
     opponentPassingYards: '',
     opponentRushingYards: '',
     opponentCompletionPercentage: '',
-    opponentYardsPerAttempt: '',
+    opponentYardsPerCompletion: '',
     opponentYardsPerCarry: '',
     opponentThirdDownConversions: '',
     opponentRedZoneEfficiency: '',
@@ -118,7 +119,7 @@ const App: React.FC = () => {
     *   Total Yards: ${formData.teamTotalYards || 'N/A'}
     *   Passing Yards: ${formData.teamPassingYards || 'N/A'}
     *   Completion Percentage: ${formData.teamCompletionPercentage || 'N/A'}
-    *   Yards Per Attempt (YPA): ${formData.teamYardsPerAttempt || 'N/A'}
+    *   Yards Per Completion (YPC): ${formData.teamYardsPerCompletion || 'N/A'}
     *   Rushing Yards: ${formData.teamRushingYards || 'N/A'}
     *   Yards Per Carry (YPC): ${formData.teamYardsPerCarry || 'N/A'}
     *   Third-Down Conversions: ${formData.teamThirdDownConversions || 'N/A'}
@@ -132,7 +133,7 @@ const App: React.FC = () => {
     *   Total Yards: ${formData.opponentTotalYards || 'N/A'}
     *   Passing Yards: ${formData.opponentPassingYards || 'N/A'}
     *   Completion Percentage: ${formData.opponentCompletionPercentage || 'N/A'}
-    *   Yards Per Attempt (YPA): ${formData.opponentYardsPerAttempt || 'N/A'}
+    *   Yards Per Completion (YPC): ${formData.opponentYardsPerCompletion || 'N/A'}
     *   Rushing Yards: ${formData.opponentRushingYards || 'N/A'}
     *   Yards Per Carry (YPC): ${formData.opponentYardsPerCarry || 'N/A'}
     *   Third-Down Conversions: ${formData.opponentThirdDownConversions || 'N/A'}
@@ -220,7 +221,7 @@ Ready? Let's begin the press conference.
             <input name="teamTotalYards" placeholder="Total Yards" value={formData.teamTotalYards} onChange={handleChange} />
             <input name="teamPassingYards" placeholder="Passing Yards" value={formData.teamPassingYards} onChange={handleChange} />
             <input name="teamCompletionPercentage" placeholder="Completion Percentage" value={formData.teamCompletionPercentage} onChange={handleChange} />
-            <input name="teamYardsPerAttempt" placeholder="Yards Per Attempt (YPA)" value={formData.teamYardsPerAttempt} onChange={handleChange} />
+            <input name="teamYardsPerCompletion" placeholder="Yards Per Completion (YPC)" value={formData.teamYardsPerCompletion} onChange={handleChange} />
             <input name="teamRushingYards" placeholder="Rushing Yards" value={formData.teamRushingYards} onChange={handleChange} />
             <input name="teamYardsPerCarry" placeholder="Yards Per Carry (YPC)" value={formData.teamYardsPerCarry} onChange={handleChange} />
             <input name="teamThirdDownConversions" placeholder="Third-Down Conversions (e.g., 5/12)" value={formData.teamThirdDownConversions} onChange={handleChange} />
@@ -238,7 +239,7 @@ Ready? Let's begin the press conference.
             <input name="opponentTotalYards" placeholder="Total Yards" value={formData.opponentTotalYards} onChange={handleChange} />
             <input name="opponentPassingYards" placeholder="Passing Yards" value={formData.opponentPassingYards} onChange={handleChange} />
             <input name="opponentCompletionPercentage" placeholder="Completion Percentage" value={formData.opponentCompletionPercentage} onChange={handleChange} />
-            <input name="opponentYardsPerAttempt" placeholder="Yards Per Attempt (YPA)" value={formData.opponentYardsPerAttempt} onChange={handleChange} />
+            <input name="opponentYardsPerCompletion" placeholder="Yards Per Completion (YPC)" value={formData.opponentYardsPerCompletion} onChange={handleChange} />
             <input name="opponentRushingYards" placeholder="Rushing Yards" value={formData.opponentRushingYards} onChange={handleChange} />
             <input name="opponentYardsPerCarry" placeholder="Yards Per Carry (YPC)" value={formData.opponentYardsPerCarry} onChange={handleChange} />
             <input name="opponentThirdDownConversions" placeholder="Third-Down Conversions (e.g., 5/12)" value={formData.opponentThirdDownConversions} onChange={handleChange} />
