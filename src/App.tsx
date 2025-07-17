@@ -51,6 +51,7 @@ const App: React.FC = () => {
     opponentRecord: '',
     outcome: '',
     finalScore: '',
+    gameSite: '',
     teamTotalYards: '',
     teamPassingYards: '',
     teamRushingYards: '',
@@ -111,6 +112,7 @@ const App: React.FC = () => {
 
 *   **My Team:** ${formData.teamName || 'N/A'} (Rank: ${formData.teamRank || 'N/A'}, Record: ${formData.teamRecord || 'N/A'})
 *   **Opponent:** ${formData.opponentName || 'N/A'} (Rank: ${formData.opponentRank || 'N/A'}, Record: ${formData.opponentRecord || 'N/A'})
+*   **Game Site:** ${formData.gameSite || 'N/A'}
 *   **Outcome:** ${formData.outcome || 'N/A'} (Final Score: ${formData.finalScore || 'N/A'})
 
 **Key Statistics:**
@@ -213,6 +215,12 @@ Ready? Let's begin the press conference.
               <option value="Loss">Loss</option>
             </select>
             <input name="finalScore" placeholder="Final Score (e.g., 28-24)" value={formData.finalScore} onChange={handleChange} />
+            <select name="gameSite" value={formData.gameSite} onChange={handleChange}>
+              <option value="">Select Game Site</option>
+              <option value="Home">Home</option>
+              <option value="Away">Away</option>
+              <option value="Neutral">Neutral</option>
+            </select>
           </div>
         </div>
         <div className="form-section">
