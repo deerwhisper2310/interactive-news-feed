@@ -4,4 +4,4 @@ This project is a **Post-Game Press Conference Prompt Generator**. It allows use
 
 ## Live Demo
 
-You can access the live application here: [http://deerwhisper2310.github.io/interactive-news-feed](http://deerwhisper2310.github.io/interactive-news-feed)
+You can access the live application here: [https://deerwhisper2310.github.io/post-game-press-conference/](https://deerwhisper2310.github.io/post-game-press-conference/)
